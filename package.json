@@ -1,0 +1,149 @@
+{
+  "name": "preview",
+  "displayName": "Preview",
+  "description": "Responsive Web Preview",
+  "version": "0.1.1",
+  "keywords": [
+    "webview",
+    "preview",
+    "html",
+    "live",
+    "browser"
+  ],
+  "author": "Jabed Hossain",
+  "publisher": "Jabed-Dev",
+  "license": "ISC",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "./icon.png",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:preview.open",
+    "onCommand:preview.url",
+    "onCommand:preview.refresh",
+    "onCommand:preview.responsiveView",
+    "onCommand:screenView",
+    "onWebviewPanel:preview"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "preview.open",
+        "title": "Preview Open"
+      },
+      {
+        "command": "preview.url",
+        "title": "Preview Url",
+        "icon": "$(search)"
+      },
+      {
+        "command": "preview.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "preview.responsiveView",
+        "title": "Toggle Responsive Webview",
+        "icon": "$(screen-full)"
+      },
+      {
+        "command": "preview.screenView",
+        "title": "Toggle screen view",
+        "icon": "$(editor-layout)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "preview.url",
+          "when": "PreviewActive"
+        },
+        {
+          "command": "preview.refresh",
+          "when": "false"
+        }, 
+        {
+          "command": "preview.responsiveView",
+          "when": "false"
+        },
+        {
+          "command": "preview.screenView",
+          "when": "false"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "preview.screenView",
+          "group": "navigation@2",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'",
+          "alt": "preview.responsiveView"
+        },
+        {
+          "command": "preview.refresh",
+          "group": "navigation@1",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'",
+          "alt": "preview.url"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Preview",
+      "properties": {
+        "preview.url": {
+          "type": "string",
+          "default": "http://localhost:3000",
+          "description": "The localhost address to your frame on."
+        },
+        "preview.mediaScreenOverride": {
+          "type": "boolean",
+          "default": false,
+          "description": "Preview media screen default values override"
+        },
+        "preview.mediaScreen": {
+          "type": "object",
+          "default": {
+            "SM": 640,
+            "MD": 768,
+            "LG": 1024,
+            "XL": 1280,
+            "2XL": 1536
+          },
+          "description": "Preview media screen break point. Example: { \"MD\": 540 } or { \"Mobile\": \"375x780\" }"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "watch": "tsc -w -p ./"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.70.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
