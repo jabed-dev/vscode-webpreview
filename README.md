@@ -1,8 +1,9 @@
 # Preview
 
-command **Preview Open** and **Preview Url**\
+command **Preview Open** and **Preview Url**
 
 Live preview in vscode
+
 ![Screenshot](https://github.com/jabed-dev/vscode-preview/Screenshot-1.png)
 
 Set default screen size and url in setting.json
