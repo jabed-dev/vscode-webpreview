@@ -19,8 +19,8 @@
   "categories": [
     "Other"
   ],
-  "icon": "./icon.png",
-  "main": "./out/extension.js",
+  "icon": "icon.png",
+  "main": "out/extension.js",
   "activationEvents": [
     "onCommand:preview.open",
     "onCommand:preview.url",

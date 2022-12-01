@@ -4,7 +4,7 @@ command **Preview Open** and **Preview Url**
 
 Live preview in vscode
 
-![Screenshot](https://github.com/jabed-dev/vscode-preview/blob/main/Screenshot-1.png)
+![Screenshot](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/Screenshot-1.png)
 
 Set default screen size and url in setting.json
 ```json
@@ -19,4 +19,4 @@ Set default screen size and url in setting.json
 
 `alt+click` on preview layer button open responsive view and `alt+click` on preview refresh button open url input box.
 
-![Screenshot](https://github.com/jabed-dev/vscode-preview/blob/main/Screenshot-2.png)
+![Screenshot](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/Screenshot-2.png)
