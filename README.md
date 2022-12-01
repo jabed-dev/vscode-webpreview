@@ -1,6 +1,7 @@
 # Preview
 
-This is not a live-server it's live-preview. You cat use any local url 'http://localhost:3000'.
+This is not a live-server it's live-preview. You cat use any local url http://localhost:3000.
+
 command **Preview Open** and **Preview Url**
 
 Live preview in vscode
