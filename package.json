@@ -1,7 +1,7 @@
 {
   "name": "preview",
   "displayName": "Preview",
-  "description": "Responsive Web Preview",
+  "description": "Live Web Preview",
   "version": "0.1.1",
   "keywords": [
     "webview",
