@@ -1,5 +1,5 @@
 {
-  "name": "preview",
+  "name": "web-preview",
   "displayName": "Preview",
   "description": "Live Web Preview",
   "version": "0.1.1",
@@ -11,7 +11,7 @@
     "browser"
   ],
   "author": "Jabed Hossain",
-  "publisher": "Jabed-Dev",
+  "publisher": "JabedHossain",
   "license": "ISC",
   "engines": {
     "vscode": "^1.70.0"
