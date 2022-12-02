@@ -2,7 +2,7 @@
   "name": "web-preview",
   "displayName": "Preview",
   "description": "Live Web Preview",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "webview",
     "preview",
@@ -23,17 +23,14 @@
   "main": "out/extension.js",
   "activationEvents": [
     "onCommand:preview.open",
-    "onCommand:preview.url",
-    "onCommand:preview.refresh",
-    "onCommand:preview.responsiveView",
-    "onCommand:screenView",
     "onWebviewPanel:preview"
   ],
   "contributes": {
     "commands": [
       {
         "command": "preview.open",
-        "title": "Preview Open"
+        "title": "Preview Open",
+        "icon": "$(preview)"
       },
       {
         "command": "preview.url",
@@ -54,6 +51,16 @@
         "command": "preview.screenView",
         "title": "Toggle screen view",
         "icon": "$(editor-layout)"
+      },
+      {
+        "command": "preview.openDevTools",
+        "title": "Open developer Tools",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "preview.openInBrowser",
+        "title": "Open in external browser",
+        "icon": "$(link-external)"
       }
     ],
     "menus": {
@@ -73,9 +80,23 @@
         {
           "command": "preview.screenView",
           "when": "false"
+        },
+        {
+          "command": "preview.openDevTools",
+          "when": "false"
+        },
+        {
+          "command": "preview.openInBrowser",
+          "when": "false"
         }
       ],
       "editor/title": [
+        {
+          "command": "preview.openDevTools",
+          "group": "navigation@3",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'",
+          "alt": "preview.openInBrowser"
+        },
         {
           "command": "preview.screenView",
           "group": "navigation@2",

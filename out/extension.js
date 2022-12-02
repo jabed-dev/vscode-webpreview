@@ -26,7 +26,17 @@ function activate(context) {
             PreviewPanel.currentPanel.toggleScreenView();
         }
     });
-    context.subscriptions.push(onOpen, onUrl, onRefresh, onResponsiveView, onScreenView);
+    const onOpenDevTools = vscode.commands.registerCommand('preview.openDevTools', () => {
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel.openDevTools();
+        }
+    });
+    const onOpenInBrowser = vscode.commands.registerCommand('preview.openInBrowser', () => {
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel.openInBrowser();
+        }
+    });
+    context.subscriptions.push(onOpen, onUrl, onRefresh, onResponsiveView, onScreenView, onOpenDevTools, onOpenInBrowser);
     if (vscode.window.registerWebviewPanelSerializer) {
         // Make sure we register a serializer in activation event
         vscode.window.registerWebviewPanelSerializer(PreviewPanel.viewType, {
@@ -125,6 +135,13 @@ class PreviewPanel {
         else if (this._panel.viewColumn == 1) {
             this._panel.reveal(vscode.ViewColumn.Two);
         }
+    }
+    openDevTools() {
+        vscode.commands.executeCommand('workbench.action.webview.openDeveloperTools');
+    }
+    openInBrowser() {
+        const url = vscode.Uri.parse(`${this._currentUrl}`);
+        vscode.env.openExternal(url);
     }
     dispose() {
         PreviewPanel.currentPanel = undefined;

@@ -19,6 +19,6 @@ Set default screen size and url in setting.json
     }
 ```
 
-`alt+click` on preview layer button open responsive view and `alt+click` on preview refresh button open url input box.
+`alt+click` on layer button open responsive view, `alt+click` on refresh button open url input box and `alt+click` console button current url open in browser.
 
 ![Screenshot](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/.github/Screenshot-2.png)
