@@ -7,7 +7,9 @@ react/**
 node_modules/**
 .gitignore
 .yarnrc
+demo.gif
 vsc-extension-quickstart.md
 **/jsconfig.json
 **/*.map
 **/.eslintrc.json
+

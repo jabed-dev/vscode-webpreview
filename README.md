@@ -1,14 +1,16 @@
-# Preview
+# VScode Preview
 
-This is not a live-server it's live-preview. You cat use any local url http://localhost:3000.
+This is not a live-server it's live-preview. You can use any local server lick http://localhost:3000.
 
-command **Preview Open** and **Preview Url**
+`ctrl+shift+p` command **Preview Open** and **Preview Url**
 
-Live preview in vscode
+### Live preview in vscode
 
-![Screenshot](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/.github/Screenshot-1.png)
+![Demo](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/demo.gif)
 
-Set default screen size and url in setting.json
+> `alt+click` on refresh button open url input box, `alt+click` on layer button open responsive view and `alt+click` console button current url open in browser.
+
+Set default screen size and url in settings.json
 ```json
     "preview.url": "http://localhost:3000",
 	"preview.mediaScreenOverride": true,
@@ -18,7 +20,3 @@ Set default screen size and url in setting.json
         "Laptop": 1024, 
     }
 ```
-
-`alt+click` on layer button open responsive view, `alt+click` on refresh button open url input box and `alt+click` console button current url open in browser.
-
-![Screenshot](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/.github/Screenshot-2.png)
