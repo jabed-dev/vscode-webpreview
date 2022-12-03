@@ -1,6 +1,6 @@
 # VScode Preview
 
-This is not a live-server it's live-preview. You can use any local server lick http://localhost:3000.
+This is not a live-server it's live-preview. You can use any local server http://localhost:3000.
 
 <br>
 
@@ -32,4 +32,4 @@ Set default screen size and url in settings.json
 <br>
 
 
-Source Code [Repository](https://github.com/jabed-dev/vscode-preview) in github.
+Source Code [Repository](https://github.com/jabed-dev/vscode-preview) in Github.

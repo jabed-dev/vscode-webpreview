@@ -1,8 +1,8 @@
 {
   "name": "web-preview",
   "displayName": "Preview",
-  "description": "Live Web Preview for localhost development",
-  "version": "0.1.4",
+  "description": "Live Preview for local web development in vscode like react, tailwindcss",
+  "version": "0.1.5",
   "keywords": [
     "webview",
     "preview",
