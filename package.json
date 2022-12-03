@@ -1,8 +1,8 @@
 {
   "name": "web-preview",
   "displayName": "Preview",
-  "description": "Live Web Preview",
-  "version": "0.1.3",
+  "description": "Live Web Preview for localhost development",
+  "version": "0.1.4",
   "keywords": [
     "webview",
     "preview",
@@ -61,6 +61,16 @@
         "command": "preview.openInBrowser",
         "title": "Open in external browser",
         "icon": "$(link-external)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "preview.open",
+        "key": "ctrl+alt+p"
+      },
+      {
+        "command": "preview.url",
+        "key": "ctrl+alt+u"
       }
     ],
     "menus": {
