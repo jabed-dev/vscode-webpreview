@@ -12,7 +12,7 @@ export function ResponsiveSizing({
     function startZoom() {
         setZoomStartWidth(responsiveSize.width)
     }
-    
+
     function startZooming(e) {
         e.preventDefault()
         const zoom = e.target.value
@@ -37,7 +37,7 @@ export function ResponsiveSizing({
         e.preventDefault()
         let [width, height] = e.target.value.split('x')
         width = parseInt(width)
-        height = height ? parseInt(height) : (window.innerHeight - 38)
+        height = height ? parseInt(height) : width > (window.innerWidth - 34) ? parseInt(parseInt(width / ((window.innerWidth - 34) / 100)) * ((window.innerHeight - 41) / 100)) : (window.innerHeight - 41)
         width > height ? setRotate('landscape') : setRotate('portrait')
         onChangeResponsiveSize(() => ({
             width,
@@ -51,11 +51,11 @@ export function ResponsiveSizing({
                 <select
                     onChange={startDeviseSelect}
                     className="!outline-none focus:!outline-none rounded px-1 bg-gray-700 text-gray-300 focus:ring-2 focus:ring-gray-500 cursor-pointer">
-                    <option value={`456x${window.innerHeight - 38}`}>Media Screen</option>
+                    <option value={`380x${window.innerHeight - 41}`}>Media Screen</option>
                     {(() => {
                         let options = [], i = 1;
                         for (const screen in mediaScreen) {
-                           options.push(<option key={i++} value={mediaScreen[screen]}>{screen}</option>)
+                            options.push(<option key={i++} value={mediaScreen[screen]}>{screen}</option>)
                         }
                         return options;
                     })()}

@@ -2,7 +2,7 @@
   "name": "web-preview",
   "displayName": "Preview",
   "description": "Live Preview for local web development in vscode like react, tailwindcss",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "keywords": [
     "webview",
     "preview",
@@ -12,7 +12,7 @@
   ],
   "author": "Jabed Hossain",
   "publisher": "JabedHossain",
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -43,14 +43,14 @@
         "icon": "$(refresh)"
       },
       {
-        "command": "preview.responsiveView",
-        "title": "Toggle Responsive Webview",
-        "icon": "$(screen-full)"
+        "command": "preview.screenView",
+        "title": "Toggle view Column",
+        "icon": "$(editor-layout)"
       },
       {
-        "command": "preview.screenView",
-        "title": "Toggle screen view",
-        "icon": "$(editor-layout)"
+        "command": "preview.responsiveView",
+        "title": "Toggle resizable responsive view",
+        "icon": "$(screen-full)"
       },
       {
         "command": "preview.openDevTools",
@@ -102,22 +102,34 @@
       ],
       "editor/title": [
         {
-          "command": "preview.openDevTools",
-          "group": "navigation@3",
-          "when": "PreviewActive && activeWebviewPanelId == 'preview'",
-          "alt": "preview.openInBrowser"
-        },
-        {
-          "command": "preview.screenView",
-          "group": "navigation@2",
-          "when": "PreviewActive && activeWebviewPanelId == 'preview'",
-          "alt": "preview.responsiveView"
+          "command": "preview.url",
+          "group": "navigation@1",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         },
         {
           "command": "preview.refresh",
-          "group": "navigation@1",
-          "when": "PreviewActive && activeWebviewPanelId == 'preview'",
-          "alt": "preview.url"
+          "group": "navigation@2",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+        },
+        {
+          "command": "preview.screenView",
+          "group": "navigation@3",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+        },
+        {
+          "command": "preview.responsiveView",
+          "group": "navigation@4",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+        },
+        {
+          "command": "preview.openDevTools",
+          "group": "navigation@5",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+        },
+        {
+          "command": "preview.openInBrowser",
+          "group": "navigation@6",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         }
       ]
     },

@@ -4,11 +4,11 @@ import { Preview } from './components/Preview'
 function App() {
   const previewRef = useRef()
     , [responsiveDesignMode, setResponsiveDesignMode] = useState(false)
-    , DEFAULT_RESPONSIVE_SIZE = { width: 456, height: (window.innerHeight - 38) }
+    , DEFAULT_RESPONSIVE_SIZE = { width: 380, height: (window.innerHeight - 41) }
     , [responsiveSize, setResponsiveSize] = useState(DEFAULT_RESPONSIVE_SIZE)
     , [url, setUrl] = useState('http://localhost:3000')
     , [mediaScreens, setMediaScreens] = useState({})
-    , media = window.matchMedia('(min-width: 640px)').matches
+    , media = window.matchMedia('(min-width: 500px)').matches
     // , vscode = window.acquireVsCodeApi();
     
   // Handle the message inside the webview

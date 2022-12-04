@@ -141,7 +141,8 @@ class PreviewPanel {
 	public async sendUrl() {
 		const url = await vscode.window.showInputBox({
 			value: this._currentUrl,
-			valueSelection: [17, 21],
+			// @ts-ignore
+			valueSelection: [this._currentUrl?.length, this._currentUrl?.length],
 			placeHolder: 'http://localhost:3000'
 		});
 		if (!url) return;
