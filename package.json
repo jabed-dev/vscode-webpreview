@@ -2,7 +2,7 @@
   "name": "web-preview",
   "displayName": "Preview",
   "description": "Live Preview for local web development in vscode like react, tailwindcss",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "keywords": [
     "webview",
     "preview",
@@ -33,14 +33,24 @@
         "icon": "$(preview)"
       },
       {
-        "command": "preview.url",
-        "title": "Preview Url",
-        "icon": "$(search)"
+        "command": "preview.back",
+        "title": "Go Back",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "preview.forward",
+        "title": "Go Forward",
+        "icon": "$(arrow-right)"
       },
       {
         "command": "preview.refresh",
         "title": "Refresh",
         "icon": "$(refresh)"
+      },
+      {
+        "command": "preview.url",
+        "title": "Preview Url",
+        "icon": "$(search)"
       },
       {
         "command": "preview.screenView",
@@ -76,13 +86,21 @@
     "menus": {
       "commandPalette": [
         {
-          "command": "preview.url",
-          "when": "PreviewActive"
+          "command": "preview.back",
+          "when": "false"
+        },
+        {
+          "command": "preview.forward",
+          "when": "false"
         },
         {
           "command": "preview.refresh",
           "when": "false"
         }, 
+        {
+          "command": "preview.url",
+          "when": "PreviewActive"
+        },
         {
           "command": "preview.responsiveView",
           "when": "false"
@@ -102,33 +120,43 @@
       ],
       "editor/title": [
         {
-          "command": "preview.url",
+          "command": "preview.back",
           "group": "navigation@1",
           "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         },
         {
-          "command": "preview.refresh",
+          "command": "preview.forward",
           "group": "navigation@2",
           "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         },
         {
-          "command": "preview.screenView",
+          "command": "preview.refresh",
           "group": "navigation@3",
           "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         },
         {
-          "command": "preview.responsiveView",
+          "command": "preview.url",
           "group": "navigation@4",
           "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         },
         {
-          "command": "preview.openDevTools",
+          "command": "preview.screenView",
           "group": "navigation@5",
           "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         },
         {
-          "command": "preview.openInBrowser",
+          "command": "preview.responsiveView",
           "group": "navigation@6",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+        },
+        {
+          "command": "preview.openDevTools",
+          "group": "navigation@7",
+          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+        },
+        {
+          "command": "preview.openInBrowser",
+          "group": "navigation@8",
           "when": "PreviewActive && activeWebviewPanelId == 'preview'"
         }
       ]

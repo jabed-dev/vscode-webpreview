@@ -11,6 +11,16 @@ function activate(context) {
             PreviewPanel.currentPanel.sendUrl();
         }
     });
+    const onBack = vscode.commands.registerCommand('preview.back', () => {
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel.pageBack();
+        }
+    });
+    const onForward = vscode.commands.registerCommand('preview.forward', () => {
+        if (PreviewPanel.currentPanel) {
+            PreviewPanel.currentPanel.pageForward();
+        }
+    });
     const onRefresh = vscode.commands.registerCommand('preview.refresh', () => {
         if (PreviewPanel.currentPanel) {
             PreviewPanel.currentPanel.sendRefresh();
@@ -36,7 +46,7 @@ function activate(context) {
             PreviewPanel.currentPanel.openInBrowser();
         }
     });
-    context.subscriptions.push(onOpen, onUrl, onRefresh, onResponsiveView, onScreenView, onOpenDevTools, onOpenInBrowser);
+    context.subscriptions.push(onOpen, onUrl, onBack, onForward, onRefresh, onResponsiveView, onScreenView, onOpenDevTools, onOpenInBrowser);
     if (vscode.window.registerWebviewPanelSerializer) {
         // Make sure we register a serializer in activation event
         vscode.window.registerWebviewPanelSerializer(PreviewPanel.viewType, {
@@ -122,6 +132,12 @@ class PreviewPanel {
         this._currentUrl = url;
         this._panel.webview.postMessage({ preview: { url } });
     }
+    pageBack() {
+        this._panel.webview.postMessage({ preview: { back: true } });
+    }
+    pageForward() {
+        this._panel.webview.postMessage({ preview: { forward: true } });
+    }
     sendRefresh() {
         this._panel.webview.postMessage({ preview: { refresh: true } });
     }
@@ -176,9 +192,11 @@ class PreviewPanel {
     }
     _getHtmlForWebview(webview) {
         // Local path to main script run in the webview
-        const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js');
+        const scriptPathMain = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js');
+        const scriptPathSetState = vscode.Uri.joinPath(this._extensionUri, 'media', 'setState.js');
         // And the uri we use to load this script in the webview
-        const scriptUri = webview.asWebviewUri(scriptPathOnDisk);
+        const scriptMainUri = webview.asWebviewUri(scriptPathMain);
+        const scriptSetStateUri = webview.asWebviewUri(scriptPathSetState);
         // Local path to css styles
         const stylesPathMainPath = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.css');
         // Uri to load styles into webview
@@ -193,7 +211,8 @@ class PreviewPanel {
                 <meta name="theme-color" content="#000000">
 				<title>Cat Coding</title>
 				<link href="${stylesMainUri}" rel="stylesheet">
-                <script defer="defer" nonce="${nonce}" src="${scriptUri}"></script>
+                <script defer="defer" nonce="${nonce}" src="${scriptMainUri}"></script>
+                <script defer="defer" nonce="${nonce}" src="${scriptSetStateUri}"></script>
 			</head>
 			<body class="overflow-hidden w-full min-h-full flex text-white bg-gray-900 !p-0">
                 <noscript>You need to enable JavaScript to run this app.</noscript>
