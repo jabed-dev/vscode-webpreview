@@ -1,10 +1,10 @@
 {
   "name": "web-preview",
-  "displayName": "Preview",
+  "displayName": "Web Preview",
   "description": "Live Web Preview for local web development in vscode like react, tailwindcss",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "keywords": [
-    "webview",
+    "web",
     "preview",
     "html",
     "live",
@@ -164,17 +164,17 @@
     "configuration": {
       "title": "Preview",
       "properties": {
-        "preview.url": {
+        "webPreview.url": {
           "type": "string",
           "default": "http://localhost:3000",
           "description": "The localhost address to your frame on."
         },
-        "preview.mediaScreenOverride": {
+        "webPreview.mediaScreenOverride": {
           "type": "boolean",
           "default": false,
           "description": "Preview media screen default values override"
         },
-        "preview.mediaScreen": {
+        "webPreview.mediaScreen": {
           "type": "object",
           "default": {
             "SM": 640,

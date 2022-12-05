@@ -130,7 +130,7 @@ class PreviewPanel {
 		);
 
 		vscode.workspace.onDidChangeConfiguration(e => {
-			if (e.affectsConfiguration('preview')) {
+			if (e.affectsConfiguration('webPreview')) {
 				this._currentUrl = undefined;
 				this._update()
 			}
@@ -209,7 +209,7 @@ class PreviewPanel {
 	}
 
 	private _update() {
-		const config = vscode.workspace.getConfiguration('preview');
+		const config = vscode.workspace.getConfiguration('webPreview');
 		const url = config.get('url', 'http://localhost:3000');
 		if (!this._currentUrl) {
 			this._currentUrl = url;

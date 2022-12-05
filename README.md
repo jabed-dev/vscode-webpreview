@@ -17,9 +17,9 @@ This is not a live-server it's live-preview. You can use any local server http:/
 
 Set default screen size and url in settings.json
 ```json
-    "preview.url": "http://localhost:3000",
-	"preview.mediaScreenOverride": true, // Override default screen object
-    "preview.mediaScreen": {
+    "webPreview.url": "http://localhost:3000",
+	"webPreview.mediaScreenOverride": true, // Override default screen object
+    "webPreview.mediaScreen": {
         "Mobile": "380x796", // width and height
         "Tablet": 768,       // width
         "Laptop": 1024, 
