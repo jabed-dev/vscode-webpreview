@@ -1,4 +1,4 @@
-# VScode Preview
+# VScode Web Preview
 
 This is not a live-server it's live-preview. You can use any local server http://localhost:3000.
 
@@ -12,19 +12,16 @@ This is not a live-server it's live-preview. You can use any local server http:/
 
 ### Live preview in vscode
 
-![Demo](https://raw.githubusercontent.com/jabed-dev/vscode-preview/main/demo.gif)
+![Demo](https://raw.githubusercontent.com/jabed-dev/vscode-webpreview/main/demo.gif)
 
 
 Set default screen size and url in settings.json
 ```json
     "webPreview.url": "http://localhost:3000",
-	"webPreview.mediaScreenOverride": true, // Override default screen object
+    "webPreview.mediaScreenOverride": true, // Override default screen object
     "webPreview.mediaScreen": {
         "Mobile": "380x796", // width and height
         "Tablet": 768,       // width
         "Laptop": 1024, 
     }
 ```
-
-
-Source Code [Repository](https://github.com/jabed-dev/vscode-preview) in Github.
