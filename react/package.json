@@ -6,16 +6,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "start:css": "tailwindcss -i ./src/index.css -o ./public/build.css -w",
-    "build:css": "tailwindcss -i ./src/index.css -o ./public/build.css -m"
+    "start:css": "tailwindcss -i ./src/index.css -o ./public/main.css -w",
+    "build:css": "tailwindcss -i ./src/index.css -o ./build/main.css -m"
   },
   "keywords": [],
   "author": "Jabed Hossain",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.2.4"
   }
 }

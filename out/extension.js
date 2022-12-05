@@ -13,12 +13,12 @@ function activate(context) {
     });
     const onBack = vscode.commands.registerCommand('preview.back', () => {
         if (PreviewPanel.currentPanel) {
-            PreviewPanel.currentPanel.pageBack();
+            PreviewPanel.currentPanel.sendPageBack();
         }
     });
     const onForward = vscode.commands.registerCommand('preview.forward', () => {
         if (PreviewPanel.currentPanel) {
-            PreviewPanel.currentPanel.pageForward();
+            PreviewPanel.currentPanel.sendPageForward();
         }
     });
     const onRefresh = vscode.commands.registerCommand('preview.refresh', () => {
@@ -132,10 +132,10 @@ class PreviewPanel {
         this._currentUrl = url;
         this._panel.webview.postMessage({ preview: { url } });
     }
-    pageBack() {
+    sendPageBack() {
         this._panel.webview.postMessage({ preview: { back: true } });
     }
-    pageForward() {
+    sendPageForward() {
         this._panel.webview.postMessage({ preview: { forward: true } });
     }
     sendRefresh() {
@@ -192,11 +192,9 @@ class PreviewPanel {
     }
     _getHtmlForWebview(webview) {
         // Local path to main script run in the webview
-        const scriptPathMain = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js');
-        const scriptPathSetState = vscode.Uri.joinPath(this._extensionUri, 'media', 'setState.js');
+        const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js');
         // And the uri we use to load this script in the webview
-        const scriptMainUri = webview.asWebviewUri(scriptPathMain);
-        const scriptSetStateUri = webview.asWebviewUri(scriptPathSetState);
+        const scriptUri = webview.asWebviewUri(scriptPathOnDisk);
         // Local path to css styles
         const stylesPathMainPath = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.css');
         // Uri to load styles into webview
@@ -209,12 +207,11 @@ class PreviewPanel {
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta name="theme-color" content="#000000">
-				<title>Cat Coding</title>
+				<title>Preview</title>
 				<link href="${stylesMainUri}" rel="stylesheet">
-                <script defer="defer" nonce="${nonce}" src="${scriptMainUri}"></script>
-                <script defer="defer" nonce="${nonce}" src="${scriptSetStateUri}"></script>
+                <script defer="defer" nonce="${nonce}" src="${scriptUri}"></script>
 			</head>
-			<body class="overflow-hidden w-full min-h-full flex text-white bg-gray-900 !p-0">
+			<body class="w-full min-h-full flex text-white bg-gray-900 !p-0 overflow-hidden">
                 <noscript>You need to enable JavaScript to run this app.</noscript>
                 <div id="root" class="w-full flex flex-none flex-col"></div>
             </body>

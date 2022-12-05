@@ -298,7 +298,6 @@ export const Preview = forwardRef(
                   : {}
               }
               className={`absolute inset-0 w-full h-full bg-white ${resizing ? 'pointer-events-none select-none' : ''}`}
-              sandbox="allow-popups-to-escape-sandbox allow-scripts allow-popups allow-forms allow-pointer-lock allow-top-navigation allow-modals allow-same-origin allow-scripts"
             />
           </div>
           {responsiveDesignMode && (

@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  // <React.StrictMode>
-    <App />
-  // </React.StrictMode>
-);
+root.render(<App />);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+// Handle the message inside the webview
+(function () {
+	const vscode = window.acquireVsCodeApi();
+	window.addEventListener('message', (event) => {
+		const { preview } = event.data;
+		if (preview) {
+			if (preview.url) {
+				vscode.setState({ previewUrl: preview.url })
+			}
+			if (preview.back) {
+				window.history.back()
+			}
+			if (preview.forward) {
+				window.history.forward()
+			}
+		}
+	})
+})();

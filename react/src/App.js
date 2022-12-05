@@ -9,7 +9,6 @@ function App() {
     , [url, setUrl] = useState('http://localhost:3000')
     , [mediaScreens, setMediaScreens] = useState({})
     , media = window.matchMedia('(min-width: 500px)').matches
-    // , vscode = window.acquireVsCodeApi();
     
   // Handle the message inside the webview
   window.addEventListener('message', (event) => {
@@ -17,7 +16,6 @@ function App() {
     if (preview) {
       if (preview.url) {
         setUrl(preview.url)
-        // vscode.setState({ previewUrl: preview.url })
       }
       if (preview.mediaScreen) {
         setMediaScreens(preview.mediaScreen)

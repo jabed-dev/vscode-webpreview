@@ -4,7 +4,8 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
     content: [
         "./src/**/*.{js,jsx}",
-        "../src/extension.ts"
+        "../src/extension.ts",
+        "./public/index.html"
     ],
     darkMode: 'media',
     theme: {
