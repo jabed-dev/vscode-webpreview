@@ -2,7 +2,7 @@
   "name": "web-preview",
   "displayName": "Web Preview",
   "description": "Live Web Preview for local web development in vscode like react, tailwindcss",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "keywords": [
     "web",
     "preview",
@@ -131,7 +131,7 @@
         {
           "command": "preview.forward",
           "group": "navigation@2",
-          "when": "PreviewActive && activeWebviewPanelId == 'preview'"
+          "when": "false"
         },
         {
           "command": "preview.refresh",
